@@ -1,7 +1,7 @@
-﻿# CMakeList.txt : CMake project for Project1, include source and define
+# CMakeList.txt : CMake project for Project1, include source and define
 # project specific logic here.
 #
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required (VERSION 2.8)
 
 find_package(OpenMP)
 
@@ -15,5 +15,9 @@ endif()
 
 # Add source to this project's executable.
 add_executable (Project1 "Project1.cpp" "Project1.h" "Utils.cpp" "Utils.h" "Config.cpp" "Config.h")
+
+if(UNIX)
+    target_link_libraries(Project1 stdc++fs)
+endif(UNIX)
 
 # TODO: Add tests and install targets if needed.

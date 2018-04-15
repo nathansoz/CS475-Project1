@@ -2,14 +2,14 @@
 
 using namespace Project1;
 
-Config Config::FromFile(std::string& path)
+Config Config::FromFile(const std::string& path)
 {
 	Config config(path);
 
 	return config;
 }
 
-Config::Config(std::string& path)
+Config::Config(const std::string& path)
 {
 	std::ifstream _fileStream(path);
 

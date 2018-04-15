@@ -1,5 +1,11 @@
 #include "Utils.h"
 
+#ifndef _WIN32
+    #include <sys/types.h>
+    #include <unistd.h>
+    #include <algorithm>
+#endif
+
 using namespace Project1;
 
 float Utils::Height(int iu, int iv, int numberOfNodes)
@@ -130,6 +136,14 @@ std::string Utils::GetProgramDirectory()
 	std::string path(pgmptr);
 	return path.substr(0, path.find_last_of("/\\"));
 #else
-
+        int len = 1024;
+        char pBuf[len];
+	char szTmp[32];
+	sprintf(szTmp, "/proc/%d/exe", getpid());
+	int bytes = std::min((int)readlink(szTmp, pBuf, len), len - 1);
+	if (bytes >= 0)
+		pBuf[bytes] = '\0';
+	std::string path(pBuf);
+	return path.substr(0, path.find_last_of("/\\"));
 #endif
 }

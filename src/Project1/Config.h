@@ -12,9 +12,9 @@ namespace Project1
 		std::vector<int> Threads;
 		std::vector<int> Nodes;
 
-		static Config FromFile(std::string& path);
+		static Config FromFile(const std::string& path);
 	private:
 		rapidjson::Document _document;
-		Config(std::string& path);
+		Config(const std::string& path);
 	};
 }
