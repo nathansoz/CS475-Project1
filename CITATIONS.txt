@@ -1,0 +1,3 @@
+src/External/rapidjson (for parsing configuration file)
+
+https://github.com/Tencent/rapidjson

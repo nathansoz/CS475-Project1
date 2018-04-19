@@ -1,0 +1,1 @@
+You can run ./buildandrun.sh on flip and it should compile and run the timing for you. Citations for json configuration part of my application in CITATIONS.txt. Please reach out if you have any questions: sosnovsn@oregonstate.edu
